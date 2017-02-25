@@ -1,0 +1,17 @@
+<div class="container">
+  <form (ngSubmit)="addFriend()">
+    <h1>Add friend</h1>
+    <md-input-container>
+      <input mdInput placeholder="Username" [(ngModel)]="userName" name="userName">
+    </md-input-container>
+    <button type="submit" md-raised-button>Add friend</button>
+  </form>
+
+  <h1 *ngIf="getFriends().length">My friends</h1>
+  <ul>
+    <li *ngFor="let friend of getFriends()">
+      <span>{{ friend.name }}</span>
+      <button md-raised-button (click)="removeFriend(friend.key)">Remove</button>
+    </li>
+  </ul>
+</div>

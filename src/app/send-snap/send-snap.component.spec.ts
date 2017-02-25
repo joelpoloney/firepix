@@ -12,17 +12,28 @@
  * limitations under the License.
  */
 
-import { FirepixPage } from './app.po';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-describe('firepix App', () => {
-  let page: FirepixPage;
+import { SendSnapComponent } from './send-snap.component';
+
+describe('SendSnapComponent', () => {
+  let component: SendSnapComponent;
+  let fixture: ComponentFixture<SendSnapComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ SendSnapComponent ]
+    })
+    .compileComponents();
+  }));
 
   beforeEach(() => {
-    page = new FirepixPage();
+    fixture = TestBed.createComponent(SendSnapComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
-  it('should display message saying app works', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });

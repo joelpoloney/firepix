@@ -1,0 +1,8 @@
+.controls {
+  padding: 4px;
+  position: absolute;
+  bottom: 0;
+  background: #FFFFFF;
+  opacity: 0.8;
+  width: 100%;
+}

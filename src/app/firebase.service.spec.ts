@@ -12,14 +12,17 @@
  * limitations under the License.
  */
 
-import { browser, element, by } from 'protractor';
+import { TestBed, inject } from '@angular/core/testing';
+import { FirebaseService } from './firebase.service';
 
-export class FirepixPage {
-  navigateTo() {
-    return browser.get('/');
-  }
+describe('FirebaseService', () => {
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [FirebaseService]
+    });
+  });
 
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
-  }
-}
+  it('should ...', inject([FirebaseService], (service: FirebaseService) => {
+    expect(service).toBeTruthy();
+  }));
+});

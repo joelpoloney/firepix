@@ -12,17 +12,28 @@
  * limitations under the License.
  */
 
-import { FirepixPage } from './app.po';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-describe('firepix App', () => {
-  let page: FirepixPage;
+import { LoginComponent } from './login.component';
+
+describe('LoginComponent', () => {
+  let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ LoginComponent ]
+    })
+    .compileComponents();
+  }));
 
   beforeEach(() => {
-    page = new FirepixPage();
+    fixture = TestBed.createComponent(LoginComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
-  it('should display message saying app works', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+  it('should create', () => {
+    expect(component).toBeTruthy();
   });
 });

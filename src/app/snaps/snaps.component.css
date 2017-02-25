@@ -1,0 +1,15 @@
+.image {
+  width: 375px;
+  height: 667px;
+}
+
+.message {
+  top: 100px;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  background: #FFFFFF;
+  opacity: 0.5;
+  padding: 8px;
+  font-size: 20pt;
+}

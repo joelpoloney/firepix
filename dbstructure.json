@@ -1,0 +1,30 @@
+{
+    "users": {
+        "[uid1]": "joel",
+        "[uid2]": "rob"
+    },
+    "snaps": {
+        "[uid2]": {
+            "friends": {
+                "[uid1]": "joel"
+            },
+            "snaps": {
+                // snap from user with the id of [uid1]
+                "[uid1]": [
+                    {
+                        "snap1": {
+                            "url": "https://...",
+                            "text": "This is super cool!",
+                            "duration": 10
+                        },
+                        "snap2": {
+                            "url": "https://...",
+                            "text": "Hahahahaha",
+                            "duration": 3
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

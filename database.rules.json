@@ -1,0 +1,23 @@
+{
+  "rules": {
+    "users": {
+      ".read": true,
+      ".write": "auth != null"
+    },
+    "snaps": {
+      "$uid": {
+        "friends": {
+          ".read": "$uid === auth.uid",
+          ".write": "$uid === auth.uid"
+        },
+        "snaps": {
+          ".read": "$uid === auth.uid",
+          "$friendid": {
+            ".read": "$friendid === auth.uid || $uid === auth.uid",
+            ".write": "$friendid === auth.uid || $uid === auth.uid"
+          } 
+        }
+      }
+    }
+  }
+}

@@ -12,14 +12,6 @@
  * limitations under the License.
  */
 
-import { browser, element, by } from 'protractor';
-
-export class FirepixPage {
-  navigateTo() {
-    return browser.get('/');
-  }
-
-  getParagraphText() {
-    return element(by.css('app-root h1')).getText();
-  }
-}
+export const CONFIG = {
+  // Add your config here.
+};

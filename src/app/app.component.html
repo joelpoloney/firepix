@@ -1,3 +1,21 @@
-<h1>
-  {{title}}
-</h1>
+<div *ngIf="isInitialized()">
+  <app-login *ngIf="!isLoggedIn()"></app-login>
+
+  <div *ngIf="isLoggedIn()">
+    <app-friends *ngIf="currentState == State.ViewFriends"></app-friends>
+    <app-snaps *ngIf="currentState == State.ViewSnaps"></app-snaps>
+    <app-send-snap *ngIf="isTakingSnap()" [viewSnaps]="viewSnaps()"></app-send-snap>
+
+    <div class="buttons" *ngIf="!isTakingSnap()">
+      <button md-fab [disabled]="!hasFriends()" (click)="currentState = State.TakeSnap"><md-icon>add_a_photo</md-icon></button>
+      <button md-fab (click)="currentState = State.ViewSnaps"><md-icon>photo_library</md-icon></button>
+      <button md-fab (click)="currentState = State.ViewFriends"><md-icon>people</md-icon></button>
+      <button md-fab (click)="onLogout()"><md-icon>power_settings_new</md-icon></button>
+    </div>
+
+    <div class="buttons" *ngIf="currentState == State.TakeSnap">
+      <button md-fab (click)="takeSnap()"><md-icon>photo_camera</md-icon></button>
+    </div>
+  </div>
+</div>
+  

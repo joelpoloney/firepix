@@ -1,0 +1,27 @@
+<div id="camera" [style.background-image]="imageSrc" [hidden]="viewFriends"></div>
+
+<div *ngIf="!viewFriends">
+  <form class="controls" (ngSubmit)="viewFriends = true" [hidden]="!imageSrc">
+    <md-input-container>
+      <input mdInput placeholder="Message" [(ngModel)]="snap.message" name="message">
+    </md-input-container>
+    <md-select placeholder="Duration" [(ngModel)]="snap.duration" name="duration">
+      <md-option value="1">1 Second</md-option>
+      <md-option value="3">3 Seconds</md-option>
+      <md-option value="5">5 Seconds</md-option>
+      <md-option value="10">10 Seconds</md-option>
+    </md-select>
+    <button type="submit" md-raised-button>Choose friends</button>
+  </form>
+</div>
+
+<div *ngIf="viewFriends" class="container">
+  <h1 *ngIf="getFriends().length">My friends</h1>
+  <ul>
+    <li *ngFor="let friend of getFriends()">
+      <md-checkbox (click)="toggleFriend(friend.key)">{{ friend.name }}</md-checkbox>
+    </li>
+  </ul>
+  <button type="submit" md-raised-button (click)="sendSnapToFriends()" 
+    [disabled]="!selectedFriends.length">Send</button>
+</div>

@@ -1,0 +1,12 @@
+<div class="container" [hidden]="viewingSnap && !viewingPaused">
+  <h1>Snaps</h1>
+  <ul>
+    <li *ngFor="let friend of getFriendSnaps()" (touchstart)="viewSnaps(friend)" (touchend)="pauseViewing()">
+      <span>{{ friend.userName }}</span>
+    </li>
+  </ul>
+</div>
+
+<div class="image" [style.background-image]="viewingImageSrc" *ngIf="viewingSnap && !viewingPaused">
+  <div class="message" *ngIf="viewingSnap.message" disabled="disabled">{{ viewingSnap.message }}</div>
+</div>
